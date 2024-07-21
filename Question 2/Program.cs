@@ -8,35 +8,34 @@ namespace Question_2
 {
     class Program
     {
-        //public static int findDeepestPit(int[] A)
-        //{
-        //    int n = A.Length;
-        //    //if (n < 3) return -1; // A pit requires at least 3 points
+        public static int findDeepestPitPlan(int[] A)
+        {
+            int n = A.Length;
 
-        //    int maxDepth = -1;
-        //    int P = 0, Q = -1, R = -1;
+            int maxDepth = -1;
+            int P = 0, Q = -1, R = -1;
 
-        //    for (int i = 1; i < n; i++)
-        //    {
-        //        if (Q < 0 && A[i] < A[i - 1])
-        //        {
-        //            Q = i - 1;
-        //        }
-        //        if (Q >= 0 && (R < 0 || A[i] < A[i - 1]))
-        //        {
-        //            R = i;
-        //        }
-        //        if (R >= 0 && A[i] > A[i - 1])
-        //        {
-        //            maxDepth = Math.Max(maxDepth, Math.Min(A[P] - A[Q], A[R] - A[Q]));
-        //            P = i - 1;
-        //            Q = -1;
-        //            R = -1;
-        //        }
-        //    }
+            for (int i = 1; i < n; i++)
+            {
+                if (Q < 0 && A[i] < A[i - 1])
+                {
+                    Q = i - 1;
+                }
+                if (Q >= 0 && (R < 0 || A[i] < A[i - 1]))
+                {
+                    R = i;
+                }
+                if (R >= 0 && A[i] > A[i - 1])
+                {
+                    maxDepth = Math.Max(maxDepth, Math.Min(A[P] - A[Q], A[R] - A[Q]));
+                    P = i - 1;
+                    Q = -1;
+                    R = -1;
+                }
+            }
 
-        //    return maxDepth;
-        //}
+            return maxDepth;
+        }
 
         public static int findDeepestPit(int[] A)
         {
